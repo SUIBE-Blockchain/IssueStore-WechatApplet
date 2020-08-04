@@ -33,7 +33,7 @@
 			<view class="weui-label">赏金(元)</view>
 		</view>
 		<view class="weui-cell__hd">
-		<input class="weui-input" name="money" maxlength="20" placeholder="88" />
+		<input class="weui-input" name="money" type="number" maxlength="20" placeholder="88" />
 		</view>
 	</view>
 		<!-- Content:<textarea name="body" placeholder="请输入内容" /> -->

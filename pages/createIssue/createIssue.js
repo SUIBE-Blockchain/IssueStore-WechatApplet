@@ -90,7 +90,11 @@ Page({
       })
       return
     }
-    console.log("request")
+    console.log("request"+e.detail.value.labels)
+    wx.showLoading({
+      title:'提交中',
+      mask:true
+    })
    wx.request({
      url:'https://www.99kies.club/api/v1/issuestore',
      method:"POST",
@@ -104,17 +108,31 @@ Page({
       labels:e.detail.value.labels
     },
     success:function(res){
-      wx.showModal({
-        title: '提示',
-        content: '提交成功',
-        showCancel: false
-      })
-
-        wx.switchTab({
-          url: '/pages/PersonalCenter/PersonalCenter'
+      wx.hideLoading()
+      console.log(res)
+      if(res.data.code==200){
+        wx.showModal({
+          title: '提示',
+          content: '提交成功',
+          showCancel: false
         })
+  
+          wx.switchTab({
+            url: '/pages/PersonalCenter/PersonalCenter'
+          })
+      }
+      else{
+        wx.hideLoading()
+        wx.showModal({
+          title: '提示',
+          content: '服务器繁忙，请重试',
+          showCancel: false
+        })
+      }
+      
       },
     fail:function(res){
+      wx.hideLoading()
         console.log("失败")
         wx.showModal({
           title: '提示',
