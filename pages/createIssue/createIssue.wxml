@@ -28,22 +28,47 @@
   </view> -->
 <view class="box">
 	<form bindsubmit="formSubmit">
-		Title:<input name="title" placeholder="请输入标题" />
-		Content:<textarea name="body" placeholder="请输入内容" />
-		Money:<input name="money" placeholder="请输入悬赏金额"/>
-		<view class="section__title">选择Label:</view>
+	<view class="weui-cell weui-cell_active {{nameErr ? 'weui-cell_warn' : ''}}">
+	  <view class="weui-cell__hd">
+			<view class="weui-label">赏金(元)</view>
+		</view>
+		<view class="weui-cell__hd">
+		<input class="weui-input" name="money" maxlength="20" placeholder="88" />
+		</view>
+	</view>
+		<!-- Content:<textarea name="body" placeholder="请输入内容" /> -->
+	<view class="page-section">
+    <view class="page-section-title">请输入您的需求详情，输入完成后点击提交</view>
+    <view class="textarea-wrp">
+      <textarea name="body" auto-height placeholder="例：我需要一个xxxx功能..."/>
+    </view>
+  </view>
+		<!-- Money:<input name="money" placeholder="请输入悬赏金额"/> -->
+		<view class="weui-cell weui-cell_active {{nameErr ? 'weui-cell_warn' : ''}}">
+	  <view class="weui-cell__hd">
+		<view class="section__title">选择标签: </view>
+		</view>
+		<view class="weui-cell__hd">
 		<view>
 		<radio-group name="labels">
 			<view class="label">
 			<label><radio value="bug"/>漏洞</label>
-			<label><radio value="development"/>需求</label>
+			<label><radio value="development" checked/>需求</label>
 			<label><radio value="question"/>问题</label>
 			</view>
 		</radio-group>
 		</view>
-		<view class="button">
+		</view>
+		</view>
+		<!-- <view class="button">
 				<button class="weui-btn weui-btn_primary" formType="submit">提交</button> 
-	  </view>
+	  </view> -->
+		<view class="weui-cells__title"></view>
+     <view class="weui-form__tips-area">
+		<view class="weui-form__opr-area">
+			<button class="weui-btn weui-btn_primary" formType="submit">提交</button>
+    </view>
+		</view>
   </form>
 </view>
 	

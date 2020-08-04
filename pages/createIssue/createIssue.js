@@ -56,30 +56,41 @@ Page({
   },
 
 //绑定房间
-bindTextAreaBlur: function (e) {
-  console.log('text输入完成，携带值为', e.detail.value);
-  // 每次更变记录输入的学号，存入inputInfo对象
-  this.setData({
-    text: e.detail.value
-  })
-  console.log("text"+this.data.text)
-},
+// bindTextAreaBlur: function (e) {
+//   console.log('text输入完成，携带值为', e.detail.value);
+//   // 每次更变记录输入的学号，存入inputInfo对象
+//   this.setData({
+//     text: e.detail.value
+//   })
+//   console.log("text"+this.data.text)
+// },
 
-bind_money: function (e) {
-  // 每次更变记录输入的学号，存入inputInfo对象
-  this.setData({
-    money: e.detail.value
-  })
-  console.log("money"+this.data.money)
-},
+// bind_money: function (e) {
+//   // 每次更变记录输入的学号，存入inputInfo对象
+//   this.setData({
+//     money: e.detail.value
+//   })
+//   console.log("money"+this.data.money)
+// },
 
 
   /**
    * 提交按钮
    */
-  btnclick: function (e) {
+  formSubmit: function (e) {
     var that = this;
-    console.log(userName+"用户的新需求"+"赏金"+this.data.money+this.data.text)
+    var body = e.detail.value.body;
+    var money=e.detail.value.money;
+
+    if(body==""||money==""){
+      wx.showModal({
+        title: '提示',
+        content: "不可为空",
+        showCancel: false
+      })
+      return
+    }
+    console.log("request")
    wx.request({
      url:'https://www.99kies.club/api/v1/issuestore',
      method:"POST",
@@ -87,10 +98,10 @@ bind_money: function (e) {
       "content-Type": "application/x-www-form-urlencoded"
     },
     data:{
-      title:userName+"用户的新需求 "+"赏金"+this.data.money,
-      body:this.data.text,
-      money:this.data.money,
-      labels:"need"
+      title:userName+"用户的新需求 "+"赏金"+money,
+      body:body,
+      money:money,
+      labels:e.detail.value.labels
     },
     success:function(res){
       wx.showModal({

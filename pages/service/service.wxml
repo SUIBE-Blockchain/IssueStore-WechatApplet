@@ -12,7 +12,7 @@
   <!-- <view class='back online flex-between padding2020' bindtap='clickOpinion2'> -->
       <view class='back tell flex-between padding2020' bindtap="getAllIssue">
     <view class='waiterTitle2 flex-start'>
-      <image src='/images/exit.jpg' class='waiterImg margin-right20'></image>
+      <image src='/images/vi.png' class='waiterImg margin-right20'></image>
       <view>查看所有Issues</view>
     </view>
     <view><image src='/images/fangxiang.png' class='jiantou'></image></view>
