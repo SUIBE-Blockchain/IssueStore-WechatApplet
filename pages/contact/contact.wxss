@@ -1,0 +1,38 @@
+/* pages/waiter/waiter.wxss */
+@import '../communal/communal.wxss';
+@import '../templates/courses.wxss';
+page{
+  background-color: #F3F3F3;
+}
+.waiter{
+  position: relative;
+  top: 80rpx;
+}
+.waiterBut{
+  background-color: transparent
+}
+.waiterImg{
+  width: 34rpx;
+  height: 34rpx;
+}
+.waiterTitle{
+  font-size:18px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  line-height:21px;
+}
+.waiterTitle2{
+  font-size:15px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  line-height:21px;
+}
+
+.jiantou{
+  width: 17rpx;
+  height: 32rpx;
+}
+.flex-between{display: flex;justify-content: space-between;}
+.tell{margin-top: 31rpx;}
+.online{margin-top: 21rpx;}
+.waiterTitle2{font-size: 30rpx;font-weight: 600;}

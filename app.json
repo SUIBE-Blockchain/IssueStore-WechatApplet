@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/permission/permission",
+    "pages/signup/signup",
+    "pages/PersonalCenter/PersonalCenter",
+   
+    "pages/contact/contact"
+  
+  ],
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#494cff",
+    "navigationBarTitleText": "IssueStore",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#1296db",
+    "backgroundColor": "ffffff",
+    "list": [
+    
+      {
+        "selectedIconPath": "images/tabbar/daka_sel.png",
+        "iconPath": "images/tabbar/daka_nor.png",
+        "pagePath": "pages/contact/contact",
+        "text": "服务"
+      },
+      {
+        "pagePath": "pages/PersonalCenter/PersonalCenter",
+        "text": "IssueStore",
+        "iconPath": "images/tabbar/center_nor.png",
+        "selectedIconPath": "images/tabbar/center_sel.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "downloadFile": 5000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
