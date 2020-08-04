@@ -3,6 +3,7 @@ const app = getApp()
 //用于存储用户输入的个人信息
 //用于存储用户唯一的OpenID
 var OpenID = getApp().globalData.openid;
+var userName;
 
 Page({
   mixins: [require('../../mixin/themeChanged')],
@@ -44,6 +45,7 @@ Page({
           console.log(res);
           var avatarUrl = 'userInfo.avatarUrl';
           var nickName = 'userInfo.nickName';
+          userName= res.userInfo.nickName;
           that.setData({
             [avatarUrl]: res.userInfo.avatarUrl,
             [nickName]: res.userInfo.nickName,
@@ -55,28 +57,50 @@ Page({
 
 //绑定房间
 bindTextAreaBlur: function (e) {
-  console.log('房间输入完成，携带值为', e.detail.value);
+  console.log('text输入完成，携带值为', e.detail.value);
   // 每次更变记录输入的学号，存入inputInfo对象
   this.setData({
     text: e.detail.value
   })
-  console.log("hourseId"+this.data.text)
+  console.log("text"+this.data.text)
 },
+
+bind_money: function (e) {
+  console.log('money输入完成，携带值为', e.detail.value);
+  // 每次更变记录输入的学号，存入inputInfo对象
+  this.setData({
+    money: e.detail.value
+  })
+  console.log("money"+this.data.money)
+},
+
 
   /**
    * 提交按钮
    */
-  formSubmit: function (e) {
+  btnclick: function (e) {
     var that = this;
-    var formData = e.detail.value;
+    console.log(userName+"用户的新需求"+"赏金"+this.data.money+this.data.text)
    wx.request({
      url:'https://www.99kies.club/api/v1/issuestore',
      method:"POST",
      header: {
       "content-Type": "application/x-www-form-urlencoded"
     },
-    data:formData,
+    data:{
+      title:userName+"用户的新需求 "+"赏金"+this.data.money,
+      body:this.data.text,
+      money:this.data.money,
+      labels:"need"
+    },
     success:function(res){
+
+      wx.showModal({
+        title: '提示',
+        content: '提交成功',
+        showCancel: false
+      })
+
         wx.switchTab({
           url: '/pages/PersonalCenter/PersonalCenter'
         })
@@ -85,7 +109,7 @@ bindTextAreaBlur: function (e) {
         console.log("失败")
         wx.showModal({
           title: '提示',
-          content: "失败",
+          content: "提交失败",
           showCancel: false
         })
        

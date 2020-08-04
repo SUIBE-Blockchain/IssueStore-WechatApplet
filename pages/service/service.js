@@ -18,13 +18,18 @@ Page({
     })
   },
   getAllIssue:function(e){
-     wx.request({
-       url: 'https://github.com/SUIBE-Blockchain/FISCO_BCOS_Toolbox/issues',
-       method:"GET",
-       header: {
-        'Accept': 'application/vnd.github.v3+json'
-      }
-     })
+    //  wx.request({
+    //    url: 'https://github.com/SUIBE-Blockchain/FISCO_BCOS_Toolbox/issues',
+    //    method:"GET",
+    //    header: {
+    //     'Accept': 'application/vnd.github.v3+json'
+    //   }
+    //  })
+    wx.showModal({
+      title: '提示',
+      content: '功能开发中',
+      showCancel: false
+    })
      console.log(e)
   },
   returns: function(){
