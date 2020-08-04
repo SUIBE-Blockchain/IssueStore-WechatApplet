@@ -3,47 +3,49 @@
 <view class="userinfo">
 	<button class="userinfo-avatar" style="background-image: url({{userInfo.avatarUrl}})" size="default"></button>
 	<view class="userinfo-nickname-wrapper">
-	
 		<view class="nickname">{{userInfo.nickName}}</view>
 	</view>
-
 </view>
 
 <text wx:if="{{isSetInfo}}"><view class="weui-cells__title">个人信息</view></text>
 
 <view class="weui-cells weui-cells_after-title">
 	
-	<view class="weui-cell weui-cell_active {{nameErr ? 'weui-cell_warn' : ''}}">
+	<!-- <view class="weui-cell weui-cell_active {{nameErr ? 'weui-cell_warn' : ''}}">
 		<view class="weui-cell__hd">
 			<view class="weui-label">赏金(元)</view>
 		</view>
 		<view class="weui-cell__bd">
-
 		 <view ><input class="weui-input" bindblur="bind_money" maxlength="20" placeholder="88" /></view> 
 
 		</view>
-	
-
 	</view>
  <view class="page-section">
     <view class="page-section-title">请输入您的需求详情，输入完成后点击提交</view>
     <view class="textarea-wrp">
       <textarea bindinput="bindTextAreaBlur" auto-height placeholder="例：我需要一个xxxx功能..."/>
     </view>
-  </view>
-
+  </view> -->
+<view class="box">
+	<form bindsubmit="formSubmit">
+		Title:<input name="title" placeholder="请输入标题" />
+		Content:<textarea name="body" placeholder="请输入内容" />
+		Money:<input name="money" placeholder="请输入悬赏金额"/>
+		<view class="section__title">选择Label:</view>
+		<view>
+		<radio-group name="labels">
+			<view class="label">
+			<label><radio value="bug"/>漏洞</label>
+			<label><radio value="development"/>需求</label>
+			<label><radio value="question"/>问题</label>
+			</view>
+		</radio-group>
+		</view>
+		<view class="button">
+				<button class="weui-btn weui-btn_primary" formType="submit">提交</button> 
+	  </view>
+  </form>
+</view>
 	
 </view>
 
-
-
-<view class="weui-cells__title"></view>
-<view class="weui-form__tips-area">
-
-
-<view class="weui-form__opr-area">
-			<a class="weui-btn weui-btn_primary" bindtap="btnclick">提交</a>
-</view>
-
-
-</view>

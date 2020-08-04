@@ -66,7 +66,6 @@ bindTextAreaBlur: function (e) {
 },
 
 bind_money: function (e) {
-  console.log('money输入完成，携带值为', e.detail.value);
   // 每次更变记录输入的学号，存入inputInfo对象
   this.setData({
     money: e.detail.value
@@ -94,7 +93,6 @@ bind_money: function (e) {
       labels:"need"
     },
     success:function(res){
-
       wx.showModal({
         title: '提示',
         content: '提交成功',
