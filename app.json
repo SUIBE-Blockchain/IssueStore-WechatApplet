@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/permission/permission",
-    "pages/signup/signup",
+    "pages/login/login",
+    "pages/createIssue/createIssue",
     "pages/PersonalCenter/PersonalCenter",
    
-    "pages/contact/contact"
+    "pages/service/service"
   
   ],
   "window": {
@@ -24,7 +24,7 @@
       {
         "selectedIconPath": "images/tabbar/daka_sel.png",
         "iconPath": "images/tabbar/daka_nor.png",
-        "pagePath": "pages/contact/contact",
+        "pagePath": "pages/service/service",
         "text": "服务"
       },
       {

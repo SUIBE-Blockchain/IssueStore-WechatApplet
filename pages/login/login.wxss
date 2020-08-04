@@ -19,7 +19,14 @@
   color: #666;
   text-align: center;
 }
-
+.app-name {
+  margin-top: 25px;
+  margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 18px;
+  color: #000;
+  text-align: center;
+}
 page {
   height: 100%;
   background-repeat: no-repeat;

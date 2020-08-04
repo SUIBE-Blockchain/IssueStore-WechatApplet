@@ -18,17 +18,11 @@ Page({
     username:null,
     password:null,
     zhuce:false,
-   // phone:null,
-    // year:"",
      name:"",
-    // sex:"",
-    // health:"",
-    //用户个人信息
     userInfo: {
       avatarUrl: "", //用户头像
       nickName: "", //用户昵称
     },
- 
     idErr: false,
     nameErr: false,
     classErr: false,
@@ -72,58 +66,21 @@ bindTextAreaBlur: function (e) {
   /**
    * 提交按钮
    */
-  btnclick: function (e) {
-  var that = this;
-   var size ;
-   size = this.data.identity;
-   console.log(this.data.identity)
-   
-  
-   
-    if (this.data.text=="") {
-      this.setData({
-        ErrMessage: "请勿提交空信息"
-      })
-      return
-   }
-
- 
+  formSubmit: function (e) {
+    var that = this;
+    var formData = e.detail.value;
    wx.request({
-     url:'https://api.github.com/repos/dengcheng6502/test/issues',
+     url:'https://www.99kies.club/api/v1/issuestore',
      method:"POST",
      header: {
-      'content-type': 'application/json'
+      "content-Type": "application/x-www-form-urlencoded"
     },
-    
-    data:{
-      title:'userInfo.nickName'+"用户的新需求",
-      body:this.data.text,
-  
-    },
+    data:formData,
     success:function(res){
-      console.log(res)
-      if(res.data.status == 1){
-       
-          wx.showModal({
-            title: '提示',
-            content: '注册成功',
-            showCancel: false
-          })
-
-     
         wx.switchTab({
           url: '/pages/PersonalCenter/PersonalCenter'
         })
-      }
-      else{
-        wx.showModal({
-          title: '提示',
-          content:"失败",
-          showCancel: false
-        })
-        
-      }
-    },
+      },
     fail:function(res){
         console.log("失败")
         wx.showModal({

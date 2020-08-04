@@ -6,7 +6,7 @@ Page({
      if(e.currentTarget.id =="message"){
       getApp().globalData.isSetInfo = true
       wx.navigateTo({
-        url: '/pages/signup/signup'
+        url: '/pages/createIssue/createIssue'
       })
     }
   },

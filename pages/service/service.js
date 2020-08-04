@@ -17,9 +17,19 @@ Page({
       url: '/pages/opinion2/opinion2'
     })
   },
+  getAllIssue:function(e){
+     wx.request({
+       url: 'https://github.com/SUIBE-Blockchain/FISCO_BCOS_Toolbox/issues',
+       method:"GET",
+       header: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
+     })
+     console.log(e)
+  },
   returns: function(){
     wx.redirectTo({
-      url: '/pages/permission/permission'
+      url: '/pages/login/login'
     })
   },
   /**

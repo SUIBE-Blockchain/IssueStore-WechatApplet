@@ -8,47 +8,31 @@
 	</view>
 
 </view>
-
 <text wx:if="{{isSetInfo}}"><view class="weui-cells__title">个人信息</view></text>
-
-
 <view class="weui-cells weui-cells_after-title">
-	
-
-
-
-
-
 	<view class="weui-cell weui-cell_active {{nameErr ? 'weui-cell_warn' : ''}}">
-	
 		<view class="weui-cell__bd">
-
-		
 		 <!-- <view ><input bindblur="bind_room_id" class="weui-input" maxlength="-1" placeholder="例：1011" /></view> -->
-
-
 		</view>
-	
-
 	</view>
- <view class="page-section">
-    <view class="page-section-title">请输入您的需求详情，输入完成后点击提交</view>
-    <view class="textarea-wrp">
-      <textarea bindblur="bindTextAreaBlur" auto-height placeholder="例：我需要一个xxxx功能..."/>
-    </view>
-  </view>
-
+ <form bindsubmit="formSubmit">
+  Title:<input name="title" placeholder="请输入标题"/>
+  Content:<textarea name="body" placeholder="请输入内容" />
+  Money:<input name="money" placeholder="请输入悬赏金额"/>
+<view class="section__title">选择Label:</view>
+<view>
+<radio-group name="labels">
+<label><radio value="bug"/>bug</label>
+<label><radio value="enhancement"/>enhancement</label>
+<label><radio value="question"/>question</label>
+</radio-group>
 </view>
-
-
-
+  <view class="weui-form__opr-area">
+			<button class="weui-btn weui-btn_primary" formType="submit">提交</button> 
+</view>
+  </form>
+</view>
 <view class="weui-cells__title"></view>
 <view class="weui-form__tips-area">
-
-
-<view class="weui-form__opr-area">
-			<a class="weui-btn weui-btn_primary" bindtap="btnclick">提交</a>
-</view>
-
 
 </view>
